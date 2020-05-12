@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="Gfl::Array&lt;*&gt;">
+    <DisplayString>Array with {Len} elements</DisplayString>
+    <Expand>
+      <Item Name="Length">Len</Item>
+      <Item Name="Capacity">Capacity</Item>
+      <ArrayItems>
+        <Size>Len</Size>
+        <ValuePointer>Data</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="Gfl::BasicString&lt;char,*&gt;">
+    <AlternativeType Name="Gfl::String&lt;char,*&gt;"/>
+    <DisplayString Condition="Capacity &lt;= SSO_MAX">{Buffer, s8}</DisplayString>
+    <DisplayString Condition="Capacity &gt; SSO_MAX">{Data, s8}</DisplayString>
+    <StringView Condition="Capacity &lt;= SSO_MAX">Buffer, s8</StringView>
+    <StringView Condition="Capacity &gt; SSO_MAX">Data, s8</StringView>
+    <Expand>
+      <Item Name="Length">Len</Item>
+      <Item Name="Capacity">Capacity</Item>
+      <ArrayItems>
+        <Size>Len</Size>
+        <ValuePointer Condition="Capacity &lt;= SSO_MAX">Buffer</ValuePointer>
+        <ValuePointer Condition="Capacity &gt; SSO_MAX">Data</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="Gfl::BasicString&lt;wchar_t,*&gt;">
+    <AlternativeType Name="Gfl::String&lt;char,*&gt;"/>
+    <DisplayString Condition="Capacity &lt;= SSO_MAX">{Buffer, s8}</DisplayString>
+    <DisplayString Condition="Capacity &gt; SSO_MAX">{Data, s8}</DisplayString>
+    <StringView Condition="Capacity &lt;= SSO_MAX">Buffer, s8</StringView>
+    <StringView Condition="Capacity &gt; SSO_MAX">Data, s8</StringView>
+    <Expand>
+      <Item Name="Length">Len</Item>
+      <Item Name="Capacity">Capacity</Item>
+      <ArrayItems>
+        <Size>Len</Size>
+        <ValuePointer Condition="Capacity &lt;= SSO_MAX">Buffer</ValuePointer>
+        <ValuePointer Condition="Capacity &gt; SSO_MAX">Data</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="Gfl::Pair&lt;*,*&gt;">
+    <DisplayString>Key={Key}, Value={Value}</DisplayString>
+    <Expand>
+      <Item Name="Key">Key</Item>
+      <Item Name="Value">Value</Item>
+    </Expand>
+  </Type>
+  <Type Name="Gfl::Iterator&lt;*&gt;">
+    <DisplayString>Iterator with pointer = {Pointer}</DisplayString>
+    <Expand>
+      <Item Name="Pointer">Pointer</Item>
+      <Item Name="Value">*Pointer</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>
