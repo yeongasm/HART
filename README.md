@@ -10,15 +10,6 @@ The multi-threading engine is a lock-free (blocking-free) job based system where
   
 ## Screenshots
 
-<img src="Images/04132020_1345.png" alt="Working diffused, dielectric and metallic materials"/>
-
-```
-Render Resolution: 640 * 480
-Samples per pixel: 512
-Ray Bounces: 50
-Render time: Instantaneous
-```
-
 <img src="Images/04222020_0048.png" alt="Working positional camera"/>
 
 ```
